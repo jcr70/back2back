@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { WebService } from '../services/web.service';
+import { PlayerModel } from '../models/PlayerModel';
 
 @Component({
 	selector: 'app-root',
@@ -7,7 +8,7 @@ import { WebService } from '../services/web.service';
 	styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-	player: string;
+	player: PlayerModel;
 
 	constructor(
 		private api: WebService
@@ -15,7 +16,7 @@ export class AppComponent {
 
 	submit(player) {
 		this.api.getPlayer(player).subscribe((res) => {
-			console.log(res);
+			this.player = res;
 		});
 	}
 }

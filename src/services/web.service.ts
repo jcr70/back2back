@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../environments/environment';
-import { Batter } from '../models/Batter';
+import { PlayerModel } from '../models/PlayerModel';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs';
@@ -21,7 +21,7 @@ export class WebService {
         return this.http
 			.get(url, { headers: headers })
 			.map((data) => {
-				return data;
+				return new PlayerModel(data);
 			}).catch((error: Response) => Observable.throw(error.json()));
     }
 
