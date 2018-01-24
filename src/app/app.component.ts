@@ -11,7 +11,11 @@ export class AppComponent {
 
 	constructor(
 		private api: WebService
-	) {
-		api.getPlayer();
+	) {}
+
+	submit(player) {
+		this.api.getPlayer(player).subscribe((res) => {
+			console.log(res);
+		});
 	}
 }

@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../environments/environment';
+import { Batter } from '../models/Batter';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class WebService {
@@ -10,12 +14,15 @@ export class WebService {
 
     constructor(private http: HttpClient) {}
 
-    getPlayer() {
+    getPlayer(player) {
         let headers = this.headers();
-        let url = this.urlBuilder();
-        this.http.get(url, { headers: headers }).subscribe(data => {
-            console.log(data);
-        });
+        let url = this.urlBuilder(player);
+
+        return this.http
+			.get(url, { headers: headers })
+			.map((data) => {
+				return data;
+			}).catch((error: Response) => Observable.throw(error.json()));
     }
 
     headers(): HttpHeaders {
@@ -26,8 +33,9 @@ export class WebService {
         );
     }
 
-    urlBuilder() {
-      return 'https://api.mysportsfeeds.com/v1.2/pull/mlb/2016-regular/cumulative_player_stats.json?player=Trout';
+    urlBuilder(player) {
+        // return 'https://api.mysportsfeeds.com/v1.2/pull/mlb/2016-regular/cumulative_player_stats.json?player=Trout';
         // return `${this.url}/${this.year}-${this.type}/cumulative_player_stats.json?player=${this.player}`;
+        return `${this.url}/2017-regular/cumulative_player_stats.json?player=${player}`;
     }
 }
