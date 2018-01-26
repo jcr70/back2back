@@ -9,13 +9,21 @@ import { PlayerModel } from '../models/PlayerModel';
 })
 export class AppComponent {
     userInput: string;
-    player: PlayerModel;
+	player: PlayerModel;
+	invalidName: boolean;
 
-    constructor(private api: WebService) {}
+    constructor(private api: WebService) {
+		this.invalidName = false;
+	}
 
     submit(player) {
-        this.api.getPlayer(this.userInput).subscribe(res => {
-            this.player = res;
-        });
+        this.api.getPlayer(this.userInput)
+            .subscribe(res => {
+				this.invalidName = false;
+                this.player = res;
+			},
+			err => {
+				this.invalidName = true;
+			});
     }
 }

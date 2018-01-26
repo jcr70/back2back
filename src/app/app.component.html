@@ -2,4 +2,5 @@
     <input [(ngModel)]="userInput"/>
     <button (click)="submit(player)">Submit</button>
     <player [player]="player"></player>
+    <p *ngIf="invalidName">Please enter a valid player name</p>
 </div>
