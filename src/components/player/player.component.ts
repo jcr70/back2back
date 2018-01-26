@@ -7,11 +7,11 @@ import { PlayerModel } from '../../models/PlayerModel';
   styleUrls: ['./player.component.css']
 })
 export class PlayerComponent implements OnInit {
-  private _player: PlayerModel;
+  private players: PlayerModel[] = [];
 
   @Input()
-    set player(data: PlayerModel) {
-      this._player = data;
+    set player(player: PlayerModel) {
+      this.players.push(player);
     }
 
   constructor() { 

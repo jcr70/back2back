@@ -1,7 +1,7 @@
-<p>
-  {{_player?.name}}
-  {{_player?.position}}
-  {{_player?.hits}}
-  {{_player?.homeruns}}
-  {{_player?.battingAvg}}
+<p *ngFor="let player of players">
+  {{player?.name}}
+  {{player?.position}}
+  {{player?.hits}}
+  {{player?.homeruns}}
+  {{player?.battingAvg}}
 </p>
