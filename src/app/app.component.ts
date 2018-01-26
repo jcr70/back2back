@@ -8,6 +8,7 @@ import { PlayerModel } from '../models/PlayerModel';
 	styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+	userInput: string;
 	player: PlayerModel;
 
 	constructor(
@@ -15,7 +16,7 @@ export class AppComponent {
 	) {}
 
 	submit(player) {
-		this.api.getPlayer(player).subscribe((res) => {
+		this.api.getPlayer(this.userInput).subscribe((res) => {
 			this.player = res;
 		});
 	}
