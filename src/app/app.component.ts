@@ -3,21 +3,19 @@ import { WebService } from '../services/web.service';
 import { PlayerModel } from '../models/PlayerModel';
 
 @Component({
-	selector: 'app-root',
-	templateUrl: './app.component.html',
-	styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-	userInput: string;
-	player: PlayerModel;
+    userInput: string;
+    player: PlayerModel;
 
-	constructor(
-		private api: WebService
-	) {}
+    constructor(private api: WebService) {}
 
-	submit(player) {
-		this.api.getPlayer(this.userInput).subscribe((res) => {
-			this.player = res;
-		});
-	}
+    submit(player) {
+        this.api.getPlayer(this.userInput).subscribe(res => {
+            this.player = res;
+        });
+    }
 }

@@ -19,10 +19,11 @@ export class WebService {
         let url = this.urlBuilder(player);
 
         return this.http
-			.get(url, { headers: headers })
-			.map((data) => {
-				return new PlayerModel(data);
-			}).catch((error: Response) => Observable.throw(error.json()));
+            .get(url, { headers: headers })
+            .map(data => {
+                return new PlayerModel(data);
+            })
+            .catch((error: Response) => Observable.throw(error.json()));
     }
 
     headers(): HttpHeaders {
