@@ -1,5 +1,6 @@
 export class PlayerModel {
     public name: String = '';
+    public team: String = '';
     public position: String = '';
     public hits: String = '';
     private homeruns: String = '';
@@ -9,6 +10,8 @@ export class PlayerModel {
         this.name = `${data.cumulativeplayerstats.playerstatsentry[0].player
             .FirstName} ${data.cumulativeplayerstats.playerstatsentry[0].player
             .LastName}`;
+        this.team = `${data.cumulativeplayerstats.playerstatsentry[0].team
+            .Abbreviation}`;
         this.position = `${data.cumulativeplayerstats.playerstatsentry[0].player
             .Position}`;
         this.hits = `${data.cumulativeplayerstats.playerstatsentry[0].stats

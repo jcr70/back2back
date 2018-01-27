@@ -1,10 +1,11 @@
-<div class="playerCard" style="width: 18rem;">
+<div class="card" style="width: 18rem;">
   <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
   <div class="card-body">
-    <h5 class="card-title">{{_player?.name}}</h5>
-    <p>{{_player?.position}}</p>
-    <p>{{_player?.hits}}</p>
-    <p>{{_player?.homeruns}}</p>
-    <p>{{_player?.battingAvg}}</p>
+    <h5 class="card-header">{{_player?.name}} <h6 class="card-subtitle mb-2 text-muted">{{_player?.team}} - {{_player?.position}}</h6> </h5>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Hits: {{_player?.hits}}</li>
+        <li class="list-group-item">Homeruns: {{_player?.homeruns}}</li>
+        <li class="list-group-item">Average: {{_player?.battingAvg}}</li>
+      </ul>
   </div>
 </div>
