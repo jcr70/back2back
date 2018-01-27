@@ -1,8 +1,13 @@
-<button (click)="clear()">Clear List</button>
-<p *ngFor="let player of players">
-    {{player?.name}}
-    {{player?.position}}
-    {{player?.hits}}
-    {{player?.homeruns}}
-    {{player?.battingAvg}}
-</p>
+<button class="btn btn-dark btn-sm" (click)="clear()">Clear List</button>
+<div *ngFor="let player of players">
+  <div class="playerCard" style="width: 18rem;">
+    <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+    <div class="card-body">
+      <h5 class="card-title">{{player?.name}}</h5>
+      <p>{{player?.position}}</p>
+      <p>{{player?.hits}}</p>
+      <p>{{player?.homeruns}}</p>
+      <p>{{player?.battingAvg}}</p>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,10 @@
-<div>
-    <input [(ngModel)]="userInput"/>
-    <button (click)="submit(player)">Submit</button>
-    <player [player]="player"></player>
-    <p *ngIf="invalidName">Please enter a valid player name</p>
+<div class="container-fluid">
+  <input [(ngModel)]="userInput" />
+  <button class="btn btn-light btn-sm" (click)="submit(player)">Submit</button>
+  <div class="row">
+    <div class="col-sm">
+      <player [player]="player"></player>
+    </div>
+  </div>
+  <p *ngIf="invalidName">Please enter a valid player name</p>
 </div>
