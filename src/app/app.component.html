@@ -1,8 +1,9 @@
 <div class="container-fluid">
   <input [(ngModel)]="userInput" />
   <button class="btn btn-light btn-sm" (click)="submit(player)">Submit</button>
+  <button class="btn btn-dark btn-sm" (click)="clear()">Empty List</button>
   <div class="row">
-    <div class="col-sm">
+    <div *ngFor="let player of players" class="col-sm">
       <player [player]="player"></player>
     </div>
   </div>

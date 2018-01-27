@@ -7,16 +7,12 @@ import { PlayerModel } from '../../models/PlayerModel';
     styleUrls: ['./player.component.css']
 })
 export class PlayerComponent {
-    private players: PlayerModel[] = [];
+    private _player: PlayerModel;
 
     constructor() {}
 
     @Input()
     set player(player: PlayerModel) {
-        this.players.push(player);
-    }
-
-    clear() {
-        this.players = [];
+        this._player = player;
     }
 }

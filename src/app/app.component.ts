@@ -9,21 +9,26 @@ import { PlayerModel } from '../models/PlayerModel';
 })
 export class AppComponent {
     userInput: string;
-	player: PlayerModel;
-	invalidName: boolean;
+    invalidName: boolean;
+    players: PlayerModel[] = [];
 
     constructor(private api: WebService) {
-		this.invalidName = false;
-	}
+        this.invalidName = false;
+    }
 
     submit(player) {
-        this.api.getPlayer(this.userInput)
-            .subscribe(res => {
-				this.invalidName = false;
-                this.player = res;
-			},
-			err => {
-				this.invalidName = true;
-			});
+        this.api.getPlayer(this.userInput).subscribe(
+            res => {
+                this.players.push(res);
+                this.invalidName = false;
+            },
+            err => {
+                this.invalidName = true;
+            }
+        );
+    }
+
+    clear() {
+        this.players = [];
     }
 }
