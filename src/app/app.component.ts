@@ -12,6 +12,13 @@ export class AppComponent {
     invalidName: boolean;
     players: PlayerModel[] = [];
 
+    batterStats = {
+        hits: true,
+        walks: true,
+        avg: true,
+        homeruns: true
+    };
+
     constructor(private api: WebService) {
         this.invalidName = false;
     }
@@ -30,5 +37,19 @@ export class AppComponent {
 
     clear() {
         this.players = [];
+    }
+
+    flip(key) {
+        let val = this.batterStats[key];
+        this.batterStats[key] = !val;
+        console.log(this.batterStats[key]);
+    }
+
+    getClass(key) {
+        if(this.batterStats[key]){
+            return 'enabled'
+        } else {
+            return 'disabled';
+        }
     }
 }
