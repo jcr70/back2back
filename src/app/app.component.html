@@ -1,4 +1,15 @@
 <div class="container-fluid">
+    <div class="row">
+        Batters
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group btn-group-sm" role="group" aria-label="First group">
+                <button [ngClass]="getClass('hits')" (click)="flip('hits')" type="button" class="btn btn-secondary">H</button>
+                <button [ngClass]="getClass('walks')" (click)="flip('walks')" type="button" class="btn btn-secondary">BB</button>
+                <button [ngClass]="getClass('avg')" (click)="flip('avg')" type="button" class="btn btn-secondary">Avg</button>
+                <button [ngClass]="getClass('homeruns')" (click)="flip('homeruns')" type="button" class="btn btn-secondary">HR</button>
+            </div>
+        </div>
+    </div>
     <div class="row-search">
         <input [(ngModel)]="userInput" />
         <button class="btn btn-light btn-sm" (click)="submit(player)">Submit</button>

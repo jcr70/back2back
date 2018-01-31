@@ -1,3 +1,11 @@
 .row-search {
     margin-bottom: 10px;
 }
+
+.enabled {
+    background-color: #41474D;
+}
+
+.disabled {
+    background-color: #6c757d;
+}
